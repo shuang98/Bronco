@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
+  
+  get '/home' => 'pages#home'
+  
   resources :users
   resources :courses
 end
