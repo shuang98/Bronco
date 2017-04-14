@@ -1,0 +1,9 @@
+<div class="section-view" id="section-view-<%= section.id %>">
+	<h2 id="title"><%= section.title %></h2>
+	<br>
+	<% section.bodies.each do |body| %>
+		<p id="body <%= body.id %>"> <%= simple_format body.body %></p>
+		<br>
+	<% end %>
+	<br><br>
+</div>

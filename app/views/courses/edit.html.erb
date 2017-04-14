@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<%= render 'sidebar' %>
+		</div>
+		<div class="col-sm-8">
+			<h1><%= @course.title %></h1>
+			<div class="section-body">
+				<%= render @sections %>
+			</div>
+		</div>
+	</div>
+</div>
