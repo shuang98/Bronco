@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<center><h1 id = "cat">Become a member!</h1>
 <% if @user.errors.any? %>
 	<div class="alert alert-danger">
 		<ul>
@@ -9,11 +9,12 @@
 	</div>
 <% end %>
 
-<%= form_for @user, url: '/users' do |f| %>
+<%= form_for @user, url: '/users' do |f|%>
 
-  	Name: <%= f.text_field :username, class: "form-control"%> </br>
-  	Email: <%= f.text_field :email, class: "form-control" %> </br>
-  	Password: <%= f.password_field :password, class: "form-control" %> </br>
-  	Password Confirmation: <%= f.password_field :password_confirmation, class: "form-control" %> </br>
+  <body id = "dog">Name </body> <%= f.text_field :username, :size=>"50", class: "form-control"%> </br>
+  <body id = "dog">Email </body> <%= f.text_field :email, class: "form-control" %> </br>
+  <body id = "dog">Password</body> <%= f.password_field :password, class: "form-control" %> </br>
+  	<body id = "dog">Password Confirmation </body> <%= f.password_field :password_confirmation, class: "form-control" %> </br>
   	<%= f.submit "Submit" , class: "btn btn-primary"%>
 <% end %>
+</center>
