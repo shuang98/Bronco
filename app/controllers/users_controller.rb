@@ -24,9 +24,7 @@ class UsersController < ApplicationController
 	def search
 		if params[:search] && params[:search].length > 0
         	params[:search].downcase!
-        	#@results = User.where('LOWER(username) LIKE ?', "%#{params[:search]}%")
-			@results = User.all
-			render 'search'
+        	@results = User.where('LOWER(username) LIKE ?', "%#{params[:search]}%")
 		else
 			render 'index'
     	end
