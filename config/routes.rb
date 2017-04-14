@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/usersearch' => 'users#search'
 
   resources :users
   resources :courses

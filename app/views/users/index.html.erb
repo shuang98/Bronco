@@ -1,0 +1,9 @@
+<center><h1 id = "cat">User Search</h1>
+<%= form_tag users_path, :method => 'get', :id => 'user-search' do %>
+    <p>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+
+<h2>    </h2>
