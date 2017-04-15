@@ -3,4 +3,11 @@ class CoursesController < ApplicationController
 	def index
 		
 	end
+
+	def preview
+		@course = Course.find(params[:id])
+	end
+
+	def show
+	end
 end

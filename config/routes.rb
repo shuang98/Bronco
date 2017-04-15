@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   get '/home' => 'pages#home'
 
   resources :users
-  resources :courses
+  resources :courses do 
+    collection do 
+      get ':id/preview' => 'courses#preview', as: :preview
+    end
+  end
 end
