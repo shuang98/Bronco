@@ -10,6 +10,7 @@ $(document).on('click', '.section-link', function(event) {
 	$('.section-link').css('background-color', 'white');
 	$(this).css('background-color', 'lightgrey');
 	$('.section-form').hide();
+	$('#description').hide();
 	$('#section-form-' + section_id).show();
 });
 $(document).on('click', '.add-body', function(event) {

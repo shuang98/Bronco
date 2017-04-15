@@ -33,7 +33,16 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
-		current_user.follow(@course)
+		if current_user.id != @course.user.id
+			current_user.follow(@course)
+		end
+		@sections = @course.sections
+	end
+
+	def destroy
+		@course = Course.find(params[:id])
+		@course.destroy
+		redirect_to root_path
 	end
 
 	

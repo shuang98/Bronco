@@ -6,7 +6,6 @@
 <center><h1>
   <%= @user.username %>
 </h1>
-<h2>Followers: <%= @user.follow_count %></h2>
 <% if current_user.username == @user.username %>
  <div id = "edit-link" class = "link"><%= link_to 'Edit Profile', edit_user_path %></div>
  <% end %>
