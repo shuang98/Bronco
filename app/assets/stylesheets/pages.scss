@@ -6,12 +6,12 @@ body {
     font-family: 'Nunito', sans-serif;
     letter-spacing: 1px;
 }
-#header {
+.header {
     height: 200px;
     background: #4F8CBE;
-    background-image: url("header-img.jpg");
+    // background-image: url("header-img.jpg");
     background-size: cover;
-    color: white;
+    color: #FEFFFF;
     width: 100%;
     position: relative;
 }
@@ -30,7 +30,7 @@ body {
     background: white;
     // background-image: url('logo.png');
 }
-.title-text {
+.header-text {
     font-size: 50px;
     top: 60px;
     position: absolute;
@@ -52,8 +52,8 @@ body {
     display: inline-block;
     margin: 5px 30px;
     padding: 10px;
-    color: #1a214c;
-    background-color: white;
+    color: #CFE6FA;
+    background-color: #FEFFFF;
     font-size: 16px;
     letter-spacing: 1px;
     border-radius: 3px;
@@ -62,16 +62,25 @@ body {
     transition: .5s;
     font-weight: 200;
 }
+.link a:link, .link a:visited, .link a:hover, .link a:active { 
+    text-decoration:none; 
+    color: black;
+}
+.link:hover {
+    background-color: #DBDBDB;
+}
 #title {
     background: #CFE6FA;
     height: 200px;
     position: relative;
+    color: black;
     
 }
 #about {
     background: #A0CBEE;
     height: 700px;
     position: relative;
+    color: black;
 }
 .text {
     font-size: 24px;
