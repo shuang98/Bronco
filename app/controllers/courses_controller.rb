@@ -25,14 +25,18 @@ class CoursesController < ApplicationController
 
 	def preview
 		@course = Course.find(params[:id])
-		if current_user.courses.include? @course
+		@author = User.find(@course.user_id)
+		if current_user.following?(@course)
 			redirect_to course_path
 		end
 	end
 
 	def show
 		@course = Course.find(params[:id])
+		current_user.follow(@course)
 	end
+
+	
 	
 	private
 		def course_params

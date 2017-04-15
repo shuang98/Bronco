@@ -12,10 +12,17 @@
 </center>
 
 <u><center>Courses Created:</center></u>
-<% index = 0 %>
-<% while (index < @user.courses.length) do%>
-<%= @user.courses[index] %>
-<br>
+<% @user.courses.each do |course|%>
+      <%= link_to course.title, course_path(course.id) %>
+      <br>
+<% end %>
 
+<br>
+<u><center>Courses Currently Taking:</center></u>
+    <% Course.all do |course|%>
+        <% if current_user.following?(course) %>
+        <%= link_to course.title, course_path(course.id) %>
+        <br>
+    <% end %>
 <% end %>
 
