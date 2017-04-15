@@ -36,8 +36,8 @@
 
 <div id="excersizes">
 <% section.excersizes.each do |e| %>
-	<%= render partial: "excersize", locals: {excersize: e} %>
+	<%= render partial: "courses/excersize", locals: {excersize: e} %>
 <% end %>
-<%= render partial: "excersize_form", locals: {section: section} %>
+<%= render partial: "courses/excersize_form", locals: {section: section} %>
 </div>
 
