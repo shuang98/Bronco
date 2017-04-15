@@ -14,6 +14,3 @@ module Bronco
     
   end
 end
-
-
-config.assets.precompile += Ckeditor.assets
