@@ -1,7 +1,8 @@
 $('#new-section-form').fadeToggle();
-$('#sections').append('<li> <%= j link_to @section.title, "#", class: "section-link", id: @section.id %> </li>');
+$('#sections').append('<%= j render partial: "courses/section_link", locals: {section: @section} %>');
 var section_id = <%= @section.id %>
 $('.section-link').css('background-color', 'white');
-$('#' + section_id).css('background-color', 'lightgrey');
+$('#' + section_id + ".section-link").css('background-color', 'lightgrey');
+$('.delete-section').show();
 $('#section-body').html('<%= j render partial: "courses/section_forms"%>');
 $('#section-form-' + section_id).show();
