@@ -8,7 +8,8 @@
 		</ul>
 	</div>
 <% end %>
-<%= form_for @user, url: user_path do |f|%>
+
+<%= form_for @user, url: courses_path do |f|%>
 
   <body id = "dog">Username (minimum of 5 characters) </body> <%= f.text_field :username, :size=>"50", class: "form-control"%> </br>
   <body id = "dog">Email </body> <%= f.text_field :email, class: "form-control" %> </br>
