@@ -1,3 +1,8 @@
+body {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 1px;
+}
 #new-section-form {
 	display: none;
 }
@@ -9,4 +14,8 @@
 }
 .new-video-form {
 	display: none;
+}
+body {
+    background-color: #CFE6FA;
+    font-weight: 200;
 }
