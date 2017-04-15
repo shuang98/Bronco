@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 	has_many :courses
+	alias_attribute :following, :users
+	has_many :users
 	has_secure_password
 	validates :username, presence: true, length: {minimum: 5}, uniqueness: true
 	validates :password, length: { in: 6..20 }

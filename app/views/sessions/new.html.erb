@@ -5,6 +5,10 @@ body{
 
 }
 </style>
+<% if current_user %>
+  <h2>You are already logged in</h2>
+  <%= link_to 'Click here to go back to courses', courses_path %>
+<% else %>
 <h1 id = "header"><br><br>Login</h1>
 <% if flash[:error] %>
     <div class="alert alert-danger"><%= flash[:error] %></div>
@@ -16,3 +20,9 @@ body{
   	<%= submit_tag "Submit", class: "btn btn-primary" %>
 
 <% end %>
+
+<% end %>
+
+
+
+	

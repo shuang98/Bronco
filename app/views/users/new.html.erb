@@ -3,7 +3,7 @@ body{
 	background-color:#CFE6FA;
 
 }</style>
-
+<% if !current_user %>
 <center>
 <h1 id = "header"><br><br>Become a member!</h1>
 <% if @user.errors.any? %>
@@ -27,7 +27,7 @@ body{
 		</ul>
 	</div>
 <% end %>
-<%= form_for @user, url: courses_path do |f|%>
+<%= form_for @user, url: users_path do |f|%>
 
   <body id = "dog">Username (minimum of 5 characters) </body> <%= f.text_field :username, :size=>"20", class: "form-control"%> </br>
   <body id = "dog">Email </body> <%= f.text_field :email, class: "form-control" %> </br>
@@ -37,3 +37,8 @@ body{
 <% end %>
 </div>
 </center>
+
+<% else %>
+ <h2>You already have an account</h2>
+ <%= link_to 'Click here to back to to courses', courses_path %>
+<% end %>
