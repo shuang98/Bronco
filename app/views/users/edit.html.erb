@@ -3,6 +3,7 @@
         background-color: #CFE6FA;
     }
 </style>
+<% if current_user.username == @user.username %>
 <h1>Update your profile</h1>
 
 <div class ="container">
@@ -25,3 +26,10 @@
   	<%= f.submit "Submit" , class: "btn btn-primary"%>
 <% end %>
 </div>
+
+<% else %>
+	<h2>Error: Cannot edit another user's profile</h2>
+	<%= link_to 'Click here to go back to courses', courses_path %>
+
+<% end %>
+

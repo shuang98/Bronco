@@ -5,7 +5,11 @@
 </style>
 <center><h1>
   <%= @user.username %>
-</h1></center>
+</h1>
+<% if current_user.username == @user.username %>
+ <div id = "edit-link" class = "link"><%= link_to 'Edit Profile', edit_user_path %></div>
+ <% end %>
+</center>
 
 <u><center>Courses Created:</center></u>
 <% index = 0 %>
@@ -14,3 +18,4 @@
 <br>
 
 <% end %>
+

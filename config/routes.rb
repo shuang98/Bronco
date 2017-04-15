@@ -11,11 +11,15 @@ Rails.application.routes.draw do
 
   resources :users
   resources :courses do
+    collection do 
+      get ':id/preview' => 'courses#preview', as: :preview
+    end
   	resources :sections, only: [:create, :update, :destroy] do
       collection do
         get 'buildbody'
+        get ':id/preview' => 'courses#preview', as: :preview
       end
     end
   end
-
 end
+
