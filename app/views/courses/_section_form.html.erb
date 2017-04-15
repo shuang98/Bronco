@@ -1,0 +1,14 @@
+
+<div class="section-form" id="section-form-<%= section.id %>">
+	<h2 id="title"><%= section.title %></h2>
+		<%= form_for section, url: course_section_path(@course.id, section.id), method: :put do |f|%>
+			<%= f.fields_for :bodies do |body| %>
+				<%= body.cktext_area :body, id: "body" + section.id.to_s%>
+			<% end %>
+			<br>
+			<%= submit_tag :Save, class: "btn btn-primary"%>
+		<% end %>
+
+	<br>
+
+</div>

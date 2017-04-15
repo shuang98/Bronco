@@ -10,4 +10,13 @@ class SectionsController < ApplicationController
 			format.js {}
 		end
 	end
+
+	def update
+		@section = Section.find(params[:id])
+		@section.update(section_params)
+	end
+	private
+		def section_params
+			params.require(:section).permit(bodies_attributes: [:id, :body])
+		end
 end

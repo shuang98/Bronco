@@ -8,7 +8,12 @@ $(document).on('click', '.section-link', function(event) {
 	var section_id = $(this).attr('id');
 	$('.section-link').css('background-color', 'white');
 	$(this).css('background-color', 'lightgrey');
-	$('.section-view').hide();
-	$('#section-view-' + section_id).show();
+	$('.section-form').hide();
+	$('#section-form-' + section_id).show();
+
+
 });
+
+
+
 

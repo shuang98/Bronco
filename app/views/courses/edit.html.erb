@@ -6,8 +6,9 @@
 		<div class="col-sm-8">
 			<h1><%= @course.title %></h1>
 			<div id="section-body">
-				<%= render @sections %>
+				<% @sections.each do |section| %>
+					<%= render partial: 'section_form', locals: {section: section} %>
+				<% end %>
 			</div>
 		</div>
 	</div>
-</div>
