@@ -24,6 +24,7 @@ $(document).on('click', '.delete-section', function(event) {
 	event.preventDefault();
 	var section_id = $(this).attr('id');
 	var course_id = $('.course-id').attr('id');
+	$('.section-form').hide();
 	$.ajax({
     	url: '/courses/' + course_id + '/sections/' + section_id,
     	type: 'DELETE',
