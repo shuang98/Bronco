@@ -20,10 +20,24 @@ class SectionsController < ApplicationController
 			format.js {}
 		end
 	end
+	def buildvideo
+		@section = Section.find(params[:section_id])
+		@body = Body.new
+		@body.is_video = true
+		@body.section = @section
+		@body.body = YouTubeRails.youtube_embed_url(params[:youtube], 500, 500);
+		@body.save
+		@course = @section.course
+		respond_to do |format|
+			format.html {}
+			format.js {}
+		end
+	end
 	def buildbody
 		@section = Section.find(params[:section_id])
 		@body = Body.new
 		@body.section = @section
+		@body.is_video = false
 		@body.save
 		@course = @section.course
 		render partial: "courses/section_form", locals: {section: @section}

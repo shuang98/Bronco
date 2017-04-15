@@ -20,6 +20,11 @@ $(document).on('click', '.add-body', function(event) {
 		$('#section-form-' + section_id).html(data);
 	});
 });
+$(document).on('click', '.add-video', function(event) {
+	event.preventDefault();
+	var section_id = $(this).attr('id');
+	$('#new-video-form-' + section_id).fadeToggle();
+});
 $(document).on('click', '.delete-section', function(event) {
 	event.preventDefault();
 	var section_id = $(this).attr('id');

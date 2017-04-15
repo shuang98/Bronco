@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
   	resources :sections, only: [:create, :update, :destroy] do
       collection do
+        get 'buildvideo'
         get 'buildbody'
         delete 'destroybody'
       end
