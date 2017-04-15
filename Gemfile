@@ -41,6 +41,8 @@ gem 'ckeditor', '4.1.3'
 # Paperclip
 gem "paperclip", "~> 5.0.0"
 
+gem "cocoon"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
