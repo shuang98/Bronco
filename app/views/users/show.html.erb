@@ -10,12 +10,30 @@
  <div id = "edit-link" class = "link"><%= link_to 'Edit Profile', edit_user_path %></div>
  <% end %>
 </center>
+<h2>
+<% if current_user.username != @user.username %>
+    <% if current_user.following?(@user) %>
+        <div id = "unfollow-link" class = "link"><%= link_to 'Unfollow', unfollow_users_path(@user.id), method: :post %></div>
+    <% else %>
+        <div id = "follow-link" class = "link"><%= link_to 'Follow', follow_users_path(@user.id), method: :post %></div>
+    <% end %>
+<% end %>
 
+
+
+</h2>
 <u><center>Courses Created:</center></u>
-<% index = 0 %>
-<% while (index < @user.courses.length) do%>
-<%= @user.courses[index] %>
-<br>
+<% @user.courses.each do |course|%>
+      <%= link_to course.title, course_path(course.id) %>
+      <br>
+<% end %>
 
+<br>
+<u><center>Courses Currently Taking:</center></u>
+    <% Course.all do |course|%>
+        <% if current_user.following?(course) %>
+        <%= link_to course.title, course_path(course.id) %>
+        <br>
+    <% end %>
 <% end %>
 

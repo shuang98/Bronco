@@ -25,10 +25,27 @@ class CoursesController < ApplicationController
 
 	def preview
 		@course = Course.find(params[:id])
+		@author = User.find(@course.user_id)
+		if current_user.following?(@course)
+			redirect_to course_path
+		end
 	end
 
 	def show
+		@course = Course.find(params[:id])
+		if current_user.id != @course.user.id
+			current_user.follow(@course)
+		end
+		@sections = @course.sections
 	end
+
+	def destroy
+		@course = Course.find(params[:id])
+		@course.destroy
+		redirect_to root_path
+	end
+
+	
 	
 	private
 		def course_params

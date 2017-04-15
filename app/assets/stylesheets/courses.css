@@ -4,3 +4,9 @@
 .section-form {
 	display: none;
 }
+.delete-section {
+	display: none;
+}
+.new-video-form {
+	display: none;
+}

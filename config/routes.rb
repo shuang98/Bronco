@@ -9,15 +9,21 @@ Rails.application.routes.draw do
   get '/usersearch' => 'users#search'
   get '/home' => 'pages#home'
 
-  resources :users
+  resources :users do
+    collection do
+      post ':id/follow' => 'users#follow', as: :follow
+      post ':id/unfollow' => 'users#unfollow', as: :unfollow
+    end
+  end
   resources :courses do
     collection do 
       get ':id/preview' => 'courses#preview', as: :preview
     end
   	resources :sections, only: [:create, :update, :destroy] do
       collection do
+        get 'buildvideo'
         get 'buildbody'
-        get ':id/preview' => 'courses#preview', as: :preview
+        delete 'destroybody'
       end
     end
   end

@@ -2,17 +2,19 @@
 Sections:
 <ul id="sections">
 	<% @course.sections.each do |section| %>
-		<li><%= link_to section.title, "#", id: section.id, class: "section-link"%></li>
+		<%= render partial: 'courses/section_link', locals: {section: section} %>
 	<% end %>
 </ul>
 <div id="new-section-form">
   <%= form_tag course_sections_path(@course.id), remote: true do%>
   	<%= text_field_tag :title, "", id:"section-title-field"%>
   	<%= button_tag(type: 'submit', class: "btn btn-primary", id: "create-section") do %>
-			<span class="glyphicon glyphicon-ok"></span> 
+			<span class="glyphicon glyphicon-plus"></span> 
 		<% end %>
   <% end %>
 </div>
 <br>
 <div class="course-id" id="<%= @course.id %>"></div>
-<%= link_to "+", "", id: "new-section", class: "btn btn-primary", style: "float: right"%>
+<%= link_to "", id: "edit-section", class: "btn btn-primary", style: "float: right" do %>
+	<i class="glyphicon glyphicon-pencil"></i>
+<% end %>

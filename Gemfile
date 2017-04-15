@@ -43,6 +43,10 @@ gem "paperclip", "~> 5.0.0"
 
 gem "cocoon"
 
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
+gem 'youtube_rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

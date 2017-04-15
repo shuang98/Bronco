@@ -2,9 +2,23 @@
 
 <h1>Courses</h1>
 <h2>
+    <h3>Courses you're currently taking:</h3>
     <% Course.all.each do |course| %> 
-    <%= link_to course.title, preview_courses_url(course.id) %>
-    <br>
+    <body>
+        <% if current_user.following?(course) %>
+            <%= link_to course.title, preview_courses_url(course.id) %>
+        <% end %>
+        <br>
+    </body>
+    <% end %>
+    <h3>All other courses</h3>
+     <% Course.all.each do |course| %> 
+    <body>
+        <% if (course.user_id != current_user.id) && !current_user.following?(course) %>
+            <%= link_to course.title, preview_courses_url(course.id) %>
+            <br>
+        <% end %>
+    </body>
     <% end %>
 </h2>
 

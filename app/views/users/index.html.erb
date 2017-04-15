@@ -6,3 +6,12 @@
     </p>
 <% end %>
 
+<h3>
+Users you're following:
+<br>
+<% current_user.following_by_type('User').each do |followed| %>
+    <%= link_to followed.username, user_path(followed.id) %>
+    <br>
+<% end %>
+</h3>
+
