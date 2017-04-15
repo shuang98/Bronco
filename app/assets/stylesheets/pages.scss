@@ -28,12 +28,16 @@ body {
     height: 50px;
     width: 50px;
     background: white;
+    transition: 1s;
     // background-image: url('logo.png');
 }
 
 .logo a:link, .logo a:visited, .logo a:hover, .logo a:active { 
     text-decoration:none; 
     color: white;
+}
+.logo:hover {
+    background-color: #CFE6FA;
 }
 .header-text {
     font-size: 50px;
