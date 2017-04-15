@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/usersearch' => 'users#search'
+  get '/home' => 'pages#home'
 
   resources :users
   resources :courses
