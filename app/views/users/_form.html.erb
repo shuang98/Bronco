@@ -1,5 +1,14 @@
 <div class ="container">
-<%= form_for @user, url: '/users' do |f|%>
+<% if @user.errors.any? %>
+	<div class="alert alert-danger">
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+<%= form_for @user, url: user_path do |f|%>
 
   <body id = "dog">Username (minimum of 5 characters) </body> <%= f.text_field :username, :size=>"50", class: "form-control"%> </br>
   <body id = "dog">Email </body> <%= f.text_field :email, class: "form-control" %> </br>
