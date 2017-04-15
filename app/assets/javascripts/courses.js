@@ -40,6 +40,13 @@ $(document).on('click', '.delete-section', function(event) {
 	});
 });
 
+$(document).on('click', '.show-answer', function(event) {
+	event.preventDefault();
+	var excersize_id = $(this).attr('id');
+	$('#answer-' + excersize_id).show();
+
+});
+
 
 
 

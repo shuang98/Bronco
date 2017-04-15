@@ -19,3 +19,6 @@ body {
     background-color: #CFE6FA;
     font-weight: 200;
 }
+.answer {
+	display: none;
+}

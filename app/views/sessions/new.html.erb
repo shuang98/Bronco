@@ -16,24 +16,19 @@
 <% end %>
 <%= form_tag '/login' do %>
     <div class = "description">Email</div>
-  	<div class = "inputbox">
-  	  <%= text_field_tag( :email,"", class: "form-control")%> 
-  	</div>
-  	<div class = "description">Password</div>
-  	<div class ="inputbox">
-  	  <%= password_field_tag :password, "", class: "form-control" %>
-  	</div>
-  	<div class = "description">
-  	  <%= submit_tag "Submit", class: "btn btn-primary" %>
-  	</div>
-  	<div class = "description">
-  		<%= link_to 'Don\'t have an account? Sign up here.', new_user_path %>
-  	</div>
-
+    <div class = "inputbox">
+      <%= text_field_tag( :email,"", class: "form-control")%> 
+    </div>
+    <div class = "description">Password</div>
+    <div class ="inputbox">
+      <%= password_field_tag :password, "", class: "form-control" %>
+    </div>
+    <div class = "description">
+      <%= submit_tag "Submit", class: "btn btn-primary" %>
+    </div>
+    <div class = "description">
+      <%= link_to 'Don\'t have an account? Sign up here.', new_user_path %>
+    </div>
+<% end %>
 <% end %>
 
-<% end %>
-
-
-
-	

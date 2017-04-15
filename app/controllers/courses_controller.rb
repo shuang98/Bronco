@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
 	def create
 		@course = Course.new(course_params)
 		@course.user = current_user
+		@course.endorsements = 0
 		if @course.save
 			redirect_to edit_course_path(@course.id)
 		else
@@ -44,7 +45,11 @@ class CoursesController < ApplicationController
 		@course.destroy
 		redirect_to root_path
 	end
-
+	def endorse
+		@course = Course.find(params[:id])
+		@course.update_attribute("endorsements", @course.endorsements + 1)
+		
+	end
 	
 	
 	private

@@ -18,8 +18,10 @@ Rails.application.routes.draw do
   resources :courses do
     collection do 
       get ':id/preview' => 'courses#preview', as: :preview
+      post ':id/endorse' => 'courses#endorse', as: :endorse
     end
   	resources :sections, only: [:create, :update, :destroy] do
+      resources :excersizes, only: [:create, :destroy]
       collection do
         get 'buildvideo'
         get 'buildbody'

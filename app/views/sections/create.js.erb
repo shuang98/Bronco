@@ -1,4 +1,3 @@
-$('#new-section-form').val("");
 $('#sections').append('<%= j render partial: "courses/section_link", locals: {section: @section} %>');
 var section_id = <%= @section.id %>
 $('.section-link').css('background-color', 'white');
