@@ -1,0 +1,5 @@
+<% if !current_user.courses.include?  @course %>
+<% current_user.courses.push(@course) %>
+<% end %>
+
+<h1>HELLO</h1>

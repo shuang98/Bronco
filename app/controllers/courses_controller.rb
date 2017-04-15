@@ -25,9 +25,13 @@ class CoursesController < ApplicationController
 
 	def preview
 		@course = Course.find(params[:id])
+		if current_user.courses.include? @course
+			redirect_to course_path
+		end
 	end
 
 	def show
+		@course = Course.find(params[:id])
 	end
 	
 	private
