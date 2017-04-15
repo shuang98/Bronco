@@ -1,35 +1,79 @@
 <style>
     body {
         background-color: #CFE6FA;
+        font-weight: 200;
+    }
+    .section-container {
+        font-size: 24px;
+        min-height: 200px;
+        border: 20px yellow;
+        position: relative;
+        background-color: #A0CBEE;
+        margin: 50px auto;
+        width: 600px;
+        padding: 20px;
+        border: 2px solid black;
+        border-style: solid;
+    }
+    .page-title {
+        top: 30px;
+    }
+    .main-container {
+        position: relative;
+        background-color: #CFE6FA;
+    }
+    .section-title {
+        position: relative;
+    }
+    .page-title {
+        position: relative;
+    }
+    #subtitle {
+    	font-size: 36px;
     }
 </style>
-<% if current_user.username == @user.username %>
-<h1>Update your profile</h1>
 
-<div class ="container">
-<% if @user.errors.any? %>
-	<div class="alert alert-danger">
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
+<div class = "main-container">
+	<div class = "header-text page-title">
+		Update your profile
+	</div>	
+	<div class ="container">
+		<br>
+		<br>
+		<% if @user.errors.any? %>
+		<br>
+			<div class="alert alert-danger">
+				<ul>
+					<% @user.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 	</div>
-<% end %>
-    
-<%= form_for @user, url: user_path do |f|%>
-
-  <h2> <%= @user.username %> </h2> </br>
-  <body id = "dog">Email </body> <%= f.text_field :email, class: "form-control" %> </br>
-  <body id = "dog">Password(6 - 20 characters) </body> <%= f.password_field :password, class: "form-control" %> </br>
-  	<body id = "dog">Password Confirmation </body> <%= f.password_field :password_confirmation, class: "form-control" %> </br>
-  	<%= f.submit "Submit" , class: "btn btn-primary"%>
-<% end %>
+	<br>
+	<div id = "subtitle">User: <%= @user.username %></div>
+	<%= form_for @user, url: user_path do |f|%>
+	  	<div class = "description">Email</div>
+	  	<div class = "inputbox">
+	  		<%= f.text_field :email, placeholder: "ex: stanleyhuang@gmail.com", class: "form-control" %>
+	  	</div>
+	  	<div class = "description">Password(6 - 20 characters)</div>
+	  	<div class = "inputbox">
+	  		<%= f.password_field :password, class: "form-control" %> 
+	  	</div>
+	  	<div class = "description">Password Confirmation</div>
+	  	<div class = "inputbox">
+	  		<%= f.password_field :password_confirmation, class: "form-control" %>
+	  	</div>
+	  	<div class = "description">
+	  		<%= f.submit "Submit" , class: "btn btn-primary"%>
+	  	</div>
+	<% end %>
 </div>
 
-<% else %>
-	<h2>Error: Cannot edit another user's profile</h2>
-	<%= link_to 'Click here to go back to courses', courses_path %>
+    
 
-<% end %>
+
+
 
