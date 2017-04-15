@@ -16,8 +16,8 @@
     <body>
         <% if (course.user_id != current_user.id) && !current_user.following?(course) %>
             <%= link_to course.title, preview_courses_url(course.id) %>
+            <br>
         <% end %>
-        <br>
     </body>
     <% end %>
 </h2>

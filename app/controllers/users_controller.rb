@@ -37,6 +37,16 @@ class UsersController < ApplicationController
   def edit
     	@user = User.find(params[:id])
   end
+
+	def follow
+			current_user.follow(User.find(params[:id]))
+			redirect_to user_path(params[:id])
+	end
+
+	def unfollow
+			current_user.stop_following(User.find(params[:id]))
+			redirect_to user_path(params[:id])
+	end
   
  def update
     @user = User.find(params[:id])
