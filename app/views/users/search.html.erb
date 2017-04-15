@@ -1,0 +1,17 @@
+<style>
+    body {
+        background-color: #CFE6FA;
+    }
+</style>
+<center><h1 id = "cat">User Search</h1>
+<%= form_tag usersearch_path, :method => 'get', :id => 'user-search' do %>
+    <p>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+
+<h2> <% @results.each do |user| %> 
+    <%= link_to user.username, user_path(user.id) %>
+    <% end %>
+</h2>

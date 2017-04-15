@@ -1,0 +1,16 @@
+<style>
+    body {
+        background-color: #CFE6FA;
+    }
+</style>
+<center><h1>
+  <%= @user.username %>
+</h1></center>
+
+<u><center>Courses Created:</center></u>
+<% index = 0 %>
+<% while (index < @user.courses.length) do%>
+<%= @user.courses[index] %>
+<br>
+
+<% end %>

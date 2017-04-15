@@ -1,22 +1,10 @@
 <style>
-body{
-	background-color:#CFE6FA;
+    body {
+        background-color: #CFE6FA;
+    }
+</style>
+<h1>Update your profile</h1>
 
-}</style>
-
-<center>
-<h1 id = "header"><br><br>Become a member!</h1>
-<% if @user.errors.any? %>
-	<div class="alert alert-danger">
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
-
-<br>
 <div class ="container">
 <% if @user.errors.any? %>
 	<div class="alert alert-danger">
@@ -27,13 +15,13 @@ body{
 		</ul>
 	</div>
 <% end %>
-<%= form_for @user, url: courses_path do |f|%>
+    
+<%= form_for @user, url: user_path do |f|%>
 
-  <body id = "dog">Username (minimum of 5 characters) </body> <%= f.text_field :username, :size=>"20", class: "form-control"%> </br>
+  <h2> <%= @user.username %> </h2> </br>
   <body id = "dog">Email </body> <%= f.text_field :email, class: "form-control" %> </br>
   <body id = "dog">Password(6 - 20 characters) </body> <%= f.password_field :password, class: "form-control" %> </br>
   	<body id = "dog">Password Confirmation </body> <%= f.password_field :password_confirmation, class: "form-control" %> </br>
   	<%= f.submit "Submit" , class: "btn btn-primary"%>
 <% end %>
 </div>
-</center>
