@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   	resources :sections, only: [:create, :update, :destroy] do
       collection do
         get 'buildbody'
-        get ':id/preview' => 'courses#preview', as: :preview
+        delete 'destroybody'
       end
     end
   end

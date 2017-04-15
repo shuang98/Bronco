@@ -22,12 +22,24 @@ class SectionsController < ApplicationController
 	end
 	def buildbody
 		@section = Section.find(params[:section_id])
-		puts @section.title
 		@body = Body.new
 		@body.section = @section
 		@body.save
 		@course = @section.course
 		render partial: "courses/section_form", locals: {section: @section}
+	end
+	def destroybody
+		@body = Body.find(params[:body_id])
+		@section = @body.section
+		@body.destroy
+		respond_to do |format|
+			format.html {}
+			format.js {}
+		end
+	end
+	def destroy
+		@section = Section.find(params[:id])
+		@section.destroy
 	end
 	private
 		def section_params
