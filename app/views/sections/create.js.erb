@@ -3,5 +3,5 @@ $('#sections').append('<li> <%= j link_to @section.title, "#", class: "section-l
 var section_id = <%= @section.id %>
 $('.section-link').css('background-color', 'white');
 $('#' + section_id).css('background-color', 'lightgrey');
-$('#section-body').append('<%= j render partial: "section", locals: {section: @section} %>');
-$('#section-view-' + section_id).show();
+$('#section-body').html('<%= j render partial: "courses/section_forms"%>');
+$('#section-form-' + section_id).show();

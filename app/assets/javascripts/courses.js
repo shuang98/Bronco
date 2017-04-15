@@ -10,8 +10,14 @@ $(document).on('click', '.section-link', function(event) {
 	$(this).css('background-color', 'lightgrey');
 	$('.section-form').hide();
 	$('#section-form-' + section_id).show();
-
-
+});
+$(document).on('click', '.add-body', function(event) {
+	event.preventDefault();
+	var section_id = $(this).attr('id');
+	var course_id = $('.course-id').attr('id');
+	$.get('/courses/' + course_id + '/sections/buildbody', {section_id: section_id}, function(data) {
+		$('#section-form-' + section_id).html(data);
+	});
 });
 
 

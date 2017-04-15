@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :users
   resources :courses do
   	resources :sections, only: [:create, :update, :destroy] do
+      collection do
+        get 'buildbody'
+      end
     end
   end
 
