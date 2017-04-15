@@ -15,7 +15,7 @@ body {
     width: 100%;
     position: relative;
 }
-#logo {
+.logo {
     font-family: 'Cabin Sketch';
     letter-spacing: 0px;
     font-size: 30px;
@@ -29,6 +29,11 @@ body {
     width: 50px;
     background: white;
     // background-image: url('logo.png');
+}
+
+.logo a:link, .logo a:visited, .logo a:hover, .logo a:active { 
+    text-decoration:none; 
+    color: white;
 }
 .header-text {
     font-size: 50px;

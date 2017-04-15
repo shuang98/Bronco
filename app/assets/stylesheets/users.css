@@ -15,7 +15,3 @@ html, body{
 li {
    list-style-type: none; 
 }
-.spacing {
-    height: 50px;
-    position: relative;
-}
