@@ -1,0 +1,22 @@
+
+<div class="container">
+	<h1>Create Course</h1>
+	<% if @course.errors.any? %>
+		<div class="alert alert-danger">
+			<ul>
+				<% @course.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<%= form_for @course do |f| %>
+		<strong>Title:</strong>
+		<%= f.text_field :title, class: "form-control" %>
+		<strong>Description</strong>
+		<%= f.text_area :description, class: "form-control", rows: "6" %>
+		<br>
+		<%= f.submit "Create", class: "btn btn-primary" %>
+	<% end %>
+</div>

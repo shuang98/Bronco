@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414200634) do
+ActiveRecord::Schema.define(version: 20170415065439) do
 
   create_table "bodies", force: :cascade do |t|
     t.string   "body"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20170414200634) do
     t.index ["section_id"], name: "index_bodies_on_section_id"
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -27,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170414200634) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "sections", force: :cascade do |t|

@@ -1,1 +1,11 @@
+<span>Signed in as <%= current_user.username %> | </span> <%= link_to "logout", logout_path %>
+
 <h1>Courses</h1>
+<h2>
+    <% Course.all.each do |course| %> 
+    <%= link_to course.title, preview_courses_url(course.id) %>
+    <br>
+    <% end %>
+</h2>
+
+<%= link_to "Create Course", new_course_path, class: "btn btn-primary"%>

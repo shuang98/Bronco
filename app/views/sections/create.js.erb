@@ -1,0 +1,7 @@
+$('#new-section-form').fadeToggle();
+$('#sections').append('<li> <%= j link_to @section.title, "#", class: "section-link", id: @section.id %> </li>');
+var section_id = <%= @section.id %>
+$('.section-link').css('background-color', 'white');
+$('#' + section_id).css('background-color', 'lightgrey');
+$('#section-body').html('<%= j render partial: "courses/section_forms"%>');
+$('#section-form-' + section_id).show();

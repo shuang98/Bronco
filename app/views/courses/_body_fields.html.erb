@@ -1,0 +1,4 @@
+<script>
+        CKEDITOR.replace(<%= "body" + b_id.to_s + section.id.to_s %>)
+</script>
+<%= f.cktext_area :body, id: "body" + b_id.to_s + section.id.to_s%>

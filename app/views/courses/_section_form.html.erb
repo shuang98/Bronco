@@ -1,0 +1,19 @@
+
+	<h2><%= section.title %></h2>
+		<%= form_for section, url: course_section_path(@course.id, section.id), method: :put, remote: true do |f|%>
+			<div class="bodies">
+			<% b_id = 0 %>
+				<%= f.fields_for :bodies do |body| %>
+					<%= render partial: 'courses/body_fields', locals: {f: body, section: section, b_id: b_id}  %>
+					<br>
+					<% b_id = b_id + 1 %>
+				<% end %>
+			</div>
+
+			<%= link_to "Add", "", class: "btn btn-default add-body", id: section.id %>
+			<br>
+			<%= submit_tag :Save, class: "btn btn-primary"%>
+		<% end %>
+
+	<br>
+
