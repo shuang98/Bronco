@@ -11,3 +11,11 @@ html, body{
     width: 500px;
     margin: 0 auto;
 }
+
+li {
+   list-style-type: none; 
+}
+.spacing {
+    height: 50px;
+    position: relative;
+}

@@ -37,11 +37,14 @@
   	<div class = "description">
   		<%= f.submit "Submit" , class: "btn btn-primary"%>
   	</div>
+  	<div class = "description">
+  		<%= link_to 'Already have an account? Login here.', login_path %>
+  	</div>
 <% end %>
 </div>
 </center>
 
 <% else %>
- <h2>You already have an account</h2>
- <%= link_to 'Click here to back to to courses', courses_path %>
+	<div>You are already logged in.</div>
+ 	<%= link_to 'Click here to back to to courses.', courses_path %>
 <% end %>
